@@ -4,7 +4,7 @@ from distutils.core import setup
 
 setup(
     name='django-console',
-    version='0.3',
+    version='0.4',
     author=u'Anoop Thomas Mathew',
     author_email='atmb4u@gmail.com',
     packages=['django-console'],
