@@ -6,7 +6,6 @@ setup.py
 django-console/__init__.py
 django-console/admin.py
 django-console/tests.py
-django-console/static/readme.txt
 django-console/static/images/console-128x128.png
 django-console/static/images/console.png
 django-console/static/images/screenshot.png
