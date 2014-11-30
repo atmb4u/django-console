@@ -1,0 +1,62 @@
+<html>
+<head>
+    <script src="{{ STATIC_URL }}js/termlib.js"></script>
+    <script src="{{ STATIC_URL }}admin/js/jquery.min.js"></script>
+    <style>
+        .term {
+            font-family: courier, fixed, swiss, sans-serif;
+            font-size: 16px;
+            color: #D8D8D8;
+            background: none;
+        }
+
+        .termReverse {
+            color: #424242;
+            background: #33d011;
+        }
+
+        body {
+            background: #242424;
+        }
+    </style>
+</head>
+<body>
+<div class="termDiv" id="termDiv"></div>
+<form>{% csrf_token %}</form>
+</body>
+<script>
+    term = new Terminal(
+        {
+            type: "POST",
+            ps: '$',
+            greeting: '%+rWith great power comes great responsibilty. %-r%n' +
+                    'Released under BSD License. %n(c) 2003-2013 termlib(http://www.masswerk.at/jsuix)%n' +
+                    '(c) 2014 Django Console - Anoop Thomas Mathew @atmb4u',
+            id: 1,
+            termDiv: 'termDiv',
+            crsrBlinkMode: true,
+            handler: function () {
+                this.newLine();
+                var line = this.lineBuffer;
+                var universe = this;
+                if (line != "") {
+                    $.ajax({
+                        url: 'post/',
+                        type: "POST",
+                        data: {
+                            csrfmiddlewaretoken: document.getElementsByName('csrfmiddlewaretoken')[0].value,
+                            command: line
+                        },
+                        dataType: "json",
+                        complete: function (info) {
+                            universe.write(info.responseText);
+                            universe.prompt();
+                        }
+                    });
+                }
+            }
+        }
+    );
+    term.open();
+</script>
+</html>

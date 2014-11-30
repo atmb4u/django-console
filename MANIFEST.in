@@ -1,0 +1,2 @@
+include README LICENSE
+recursive-include django-console *.py *.html *.js *.png *.txt
