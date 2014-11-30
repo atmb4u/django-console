@@ -1,16 +1,21 @@
-![Django-Console](https://raw.github.com/atmb4u/djano-console/master/django-console/static/images/console.png)
-Django-Console
-==============
+![Django-Console](https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/console-128x128.png) 
 
-bash console in the browser
+##Django-Console
+
+bash console in the browser for django
+
+Did a quick update on the code, and need to pull the code and restart the server? Django-Console is for you!
 
 ## Installation
 
-pip install django-console
+**Step 1**
+> pip install django-console
 
-include _django-console_ into INSTALLED_APPS ```settings.py```
+**Step 2**
 
-```
+include __django-console__ into INSTALLED_APPS ```settings.py```
+
+```python
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -22,6 +27,10 @@ INSTALLED_APPS = (
     'django-console'
 )
 ```
+**Step 3**
+
+run
+> python manage.py collectstatic
 
 ##Screenshots
 
@@ -29,7 +38,7 @@ in your browser, goto
 
 http://127.0.0.1:8000/admin/console/
 
-![Django-Console](https://raw.github.com/atmb4u/djano-console/master/django-console/static/images/screeshot.png)
+![Django-Console](https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/screenshot.png)
 
 NB: make sure you got superuser privileges.
 
@@ -37,14 +46,19 @@ NB: make sure you got superuser privileges.
 ##Tip
 To run sudo tasks, you can use
 
-```
+```bash
 echo mypassword | sudo -S command
 ```
 
-Eg: echo pa$$w0rD | sudo -S service nginx restart
+Example command 
+```bash
+echo pa$$w0rD | sudo -S service nginx restart
+```
 
-## LICENSE
+## License
 
 BSD License - checkout LICENSE file for the complete license document
 
 
+## Authors
+[Anoop Thomas Mathew](https://twitter.com/atmb4u "atmb4u")
