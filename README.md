@@ -1,11 +1,12 @@
 ![Django-Console](https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/console-128x128.png) 
 #Django-Console
 
-bash console in the browser for django
+bash console in the browser for django devops!
 
 ![Django-Console](https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/screenshot.png)
 
-Did a quick update on the code, and need to pull the code and restart the server? Django-Console is for you!
+Did a quick update on the code; need to pull the code and restart the server, and waiting for server admin to do that? 
+Django-Console is for you!
 
 ## Installation
 
@@ -49,13 +50,17 @@ echo mypassword | sudo -S command
 
 Example commands 
 ```bash
-echo pa$$w0rD | sudo -S service nginx restart
-git pull origin master
-ls -al
+$ echo pa$$w0rD | sudo -S service nginx restart
+
+$ git pull origin master
+
+$ ls -al
 ```
 
 ##Caveats
+
 > all the **django superusers** can access this portal, so make sure only the right guys have got access before deploying django-console to live.
+
 > long running tasks and interactive commands won't probably work.
 
 
