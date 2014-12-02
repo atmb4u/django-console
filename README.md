@@ -29,7 +29,22 @@ INSTALLED_APPS = (
     'django-console'
 )
 ```
+
 **Step 3**
+
+include two more variables to ```settings.py```
+
+> Even without these settings, it will work.
+
+> allows requests from all ips, and works even when not in https **(NOT GOOD).**
+
+```python
+SECURE_CONSOLE = True  # False to allow http
+CONSOLE_WHITELIST = [
+                "127.0.0.1"
+]  # List of IPs to be allowed - NB: All allowed by default
+```
+**Step 4**
 
 run
 > python manage.py collectstatic
