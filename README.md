@@ -3,6 +3,10 @@
 
 bash console in the browser for django devops!
 
+##IMPORTANT
+
+Service needs to be running on ```https``` to securely POST commands to the server. 
+
 ![Django-Console](https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/screenshot.png)
 
 Did a quick update on the code; need to pull the code and restart the server, and waiting for server admin to do that? 
