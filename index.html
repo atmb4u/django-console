@@ -44,11 +44,17 @@
 <h1>
 <a id="django-console" class="anchor" href="#django-console" aria-hidden="true"><span class="octicon octicon-link"></span></a>Django-Console</h1>
 
-<p>bash console in the browser for django devops</p>
+<p>bash console in the browser for django devops!</p>
+
+<h2>
+<a id="important" class="anchor" href="#important" aria-hidden="true"><span class="octicon octicon-link"></span></a>IMPORTANT</h2>
+
+<p>Service needs to be running on <code>https</code> to securely POST commands to the server. </p>
 
 <p><img src="https://raw.githubusercontent.com/atmb4u/django-console/master/django-console/static/images/screenshot.png" alt="Django-Console"></p>
 
-<p>Did a quick update on the code, and need to pull the code and restart the server? Django-Console is for you!</p>
+<p>Did a quick update on the code; need to pull the code and restart the server, and waiting for server admin to do that? 
+Django-Console is for you!</p>
 
 <h2>
 <a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
@@ -76,6 +82,21 @@
 
 <p><strong>Step 3</strong></p>
 
+<p>include two more variables to <code>settings.py</code></p>
+
+<blockquote>
+<p>Even without these settings, it will work.</p>
+
+<p>allows requests from all ips, and works even when not in https <strong>(NOT GOOD).</strong></p>
+</blockquote>
+
+<div class="highlight highlight-python"><pre>SECURE_CONSOLE <span class="pl-k">=</span> <span class="pl-c1">True</span>  <span class="pl-c"># False to allow http</span>
+CONSOLE_WHITELIST <span class="pl-k">=</span> [
+                <span class="pl-s1"><span class="pl-pds">"</span>127.0.0.1<span class="pl-pds">"</span></span>
+]  <span class="pl-c"># List of IPs to be allowed - NB: All allowed by default</span></pre></div>
+
+<p><strong>Step 4</strong></p>
+
 <p>run</p>
 
 <blockquote>
@@ -97,9 +118,11 @@
 
 <p>Example commands </p>
 
-<div class="highlight highlight-bash"><pre><span class="pl-s3">echo</span> pa<span class="pl-vo">$$</span>w0rD <span class="pl-k">|</span> sudo -S service nginx restart
-git pull origin master
-ls -al</pre></div>
+<div class="highlight highlight-bash"><pre>$ <span class="pl-s3">echo</span> pa<span class="pl-vo">$$</span>w0rD <span class="pl-k">|</span> sudo -S service nginx restart
+
+$ git pull origin master
+
+$ ls -al</pre></div>
 
 <h2>
 <a id="caveats" class="anchor" href="#caveats" aria-hidden="true"><span class="octicon octicon-link"></span></a>Caveats</h2>
