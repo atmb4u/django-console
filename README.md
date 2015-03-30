@@ -23,13 +23,7 @@ include __django-console__ into INSTALLED_APPS ```settings.py```
 
 ```python
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'django.contrib.admin',
+    # add to the existing apps
     'django-console'
 )
 ```
