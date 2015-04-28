@@ -82,5 +82,5 @@ $ ls -al
 BSD License - checkout LICENSE file for the complete license document
 
 
-## Authors
+## Author
 [Anoop Thomas Mathew](https://twitter.com/atmb4u "atmb4u")
