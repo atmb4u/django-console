@@ -38,7 +38,7 @@ def console(request):
     except AttributeError:
         v2 = True
     except:
-        print "CONSOLE_WHITELIST needs to be a list of ip addresses to be allowed access"
+        print("CONSOLE_WHITELIST needs to be a list of ip addresses to be allowed access")
         v2 = True
     settings_variables = v1 and v2
     if request.user.is_superuser and settings_variables:
@@ -59,9 +59,11 @@ def console_post(request):
         command = request.POST.get("command")
         if command:
             try:
-                output = "%c(@olive)%" + subprocess.check_output(command, shell=True) + "%c()"
-            except subprocess.CalledProcessError:
-                output = "%c(@red)%Oh! I'm sorry. Something went wrong.%c()"
+                data = subprocess.check_output(command, shell=True, stderr=subprocess.STDOUT)
+            except subprocess.CalledProcessError as e:
+                data = e.output
+            data = data.decode('utf-8')
+            output = "%c(@olive)%" + data + "%c()"
         else:
             output = "%c(@orange)%Try `ls` to start with.%c()"
         return HttpResponse(output)
