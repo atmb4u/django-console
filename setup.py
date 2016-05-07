@@ -7,7 +7,7 @@ setup(
     keywords='django, bash',
     packages=find_packages(),
     include_package_data=True,
-    version="0.4.7",
+    version="0.4.8",
     author="Anoop Thomas Mathew",
     author_email="atmb4u@gmail.com",
     url='http://github.com/atmb4u/django-console',
