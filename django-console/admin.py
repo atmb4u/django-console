@@ -1,10 +1,11 @@
-from django.conf.urls import patterns
 from django.contrib import admin
-from django.core.context_processors import csrf
+from django.template.context_processors import csrf
 from django.http import HttpResponse
 from django.shortcuts import render_to_response
 from django.conf import settings
 import subprocess
+
+from django.urls import path
 
 
 def get_client_ip(request):
@@ -67,7 +68,7 @@ def console_post(request):
         else:
             output = "%c(@orange)%Try `ls` to start with.%c()"
         return HttpResponse(output)
-    return HttpResponse("Unauthorized.", status=403)
+    return HttpResponse("Unauthorized attempt.", status=403)
 
 
 def get_admin_urls(urls):
@@ -75,9 +76,10 @@ def get_admin_urls(urls):
     Appends the console and post urls to the url patterns
     """
     def get_urls():
-        my_urls = patterns('',
-                           (r'^console/$', admin.site.admin_view(console)),
-                           (r'^console/post/$', admin.site.admin_view(console_post)))
+        my_urls = [
+            path('console/', admin.site.admin_view(console)),
+            path('console/post/', admin.site.admin_view(console_post))
+        ]
         return my_urls + urls
 
     return get_urls
